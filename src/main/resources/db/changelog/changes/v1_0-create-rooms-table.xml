@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+    http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd">
+
+    <!-- ChangeSet for creating the room table -->
+    <changeSet id="1" author="sanskar">
+        <createTable tableName="room">
+            <column name="id" type="varchar(255)">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="type" type="varchar(255)"/>
+            <column name="monthly_price" type="numeric(10, 2)"/>
+            <column name="nightly_price" type="numeric(10, 2)"/>
+        </createTable>
+    </changeSet>
+
+    <!-- ChangeSet for inserting room data -->
+    <changeSet id="2" author="sanskar">
+        <!-- Insert for a larger double room -->
+        <insert tableName="room">
+            <column name="id" value="1"/>
+            <column name="type" value="Double (Large)"/>
+            <column name="monthly_price" valueNumeric="330.00"/>
+            <column name="nightly_price" valueNumeric="50.00"/>
+        </insert>
+        <!-- Insert for a smaller double room -->
+        <insert tableName="room">
+            <column name="id" value="2"/>
+            <column name="type" value="Double (Small)"/>
+            <column name="monthly_price" valueNumeric="280.00"/>
+            <column name="nightly_price" valueNumeric="40.00"/>
+        </insert>
+        <!-- Insert for a larger quadruple room -->
+        <insert tableName="room">
+            <column name="id" value="3"/>
+            <column name="type" value="Quadruple (Large)"/>
+            <column name="monthly_price" valueNumeric="230.00"/>
+            <column name="nightly_price" valueNumeric="60.00"/>
+        </insert>
+    </changeSet>
+
+</databaseChangeLog>
